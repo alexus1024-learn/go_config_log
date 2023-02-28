@@ -36,6 +36,8 @@ func main() {
 	// if err != nil {
 	// 	fmt.Println("cant write config: ", err)
 	// }
+
+	// viper.Debug()
 }
 
 //  MYAPP_URL="fromenv.ru" go run main.go
