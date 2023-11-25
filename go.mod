@@ -1,6 +1,6 @@
 module go23_config_log
 
-go 1.19
+go 1.21
 
 require (
 	github.com/kelseyhightower/envconfig v1.4.0

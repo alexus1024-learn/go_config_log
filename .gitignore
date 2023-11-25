@@ -1,2 +1,3 @@
 /.vscode
 /vendor
+log/slog/main.log
