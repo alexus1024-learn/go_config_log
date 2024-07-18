@@ -17,7 +17,6 @@ func main() {
 
 func demoDefaultLogger() {
 	// default logger
-	//ctx := context.Background()
 	slog.Debug("debug 1", "count", 3)
 	slog.Info("info 1", slog.Int("count", 3), "hi", "there", "another param", 3254234)
 	slog.Error("oh oh", "error", errors.New("something bad happen"))
