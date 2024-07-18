@@ -20,9 +20,12 @@ func main() {
 
 	// pflag.String("url", "fromflag.ru", "url to connect")
 	// pflag.Parse()
-	// viper.BindPFlags(pflag.CommandLine)
+	// err := viper.BindPFlags(pflag.CommandLine)
+	// if err != nil {
+	// 	panic(err)
+	// }
 
-	// err := viper.ReadInConfig()
+	// err = viper.ReadInConfig()
 	// if err != nil {
 	// 	panic(err)
 	// }

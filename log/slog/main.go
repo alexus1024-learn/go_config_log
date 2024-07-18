@@ -18,7 +18,7 @@ func demoDefaultLogger() {
 	// default logger
 	//ctx := context.Background()
 	slog.Debug("debug 1", "count", 3)
-	slog.Info("info 1", slog.Int("count", 3), "hi", "there")
+	slog.Info("info 1", slog.Int("count", 3), "hi", "there", "another param", 3254234)
 	slog.Error("oh oh", "error", errors.New("something bad happen"))
 
 	// can change default logger
@@ -27,8 +27,8 @@ func demoDefaultLogger() {
 		Level:       slog.LevelDebug,
 		ReplaceAttr: nil,
 	}
-	//logHandler := slog.NewJSONHandler(os.Stderr, logConfig)
-	logHandler := slog.NewTextHandler(os.Stderr, logConfig)
+	logHandler := slog.NewJSONHandler(os.Stderr, logConfig)
+	//logHandler := slog.NewTextHandler(os.Stderr, logConfig)
 
 	logger := slog.New(logHandler)
 	slog.SetDefault(logger)
@@ -52,6 +52,7 @@ func demoLoggers() {
 
 	// examples:
 	requestLogger := logger.With("request_id", "12345")
+
 	requestLogger.Info("going to call handler")
 	err = handleRequest(requestLogger)
 	//err = processRequest(requestLogger.WithGroup("handler")) // grouping is possible
