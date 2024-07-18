@@ -7,11 +7,12 @@ import (
 	"log/slog"
 	"os"
 	"time"
+	//cslog "github.com/phsym/console-slog"
 )
 
 func main() {
-	//demoDefaultLogger()
-	demoLoggers()
+	demoDefaultLogger()
+	//demoLoggers()
 }
 
 func demoDefaultLogger() {
@@ -29,12 +30,14 @@ func demoDefaultLogger() {
 	}
 	logHandler := slog.NewJSONHandler(os.Stderr, logConfig)
 	//logHandler := slog.NewTextHandler(os.Stderr, logConfig)
+	//logHandler := cslog.NewHandler(os.Stderr, &cslog.HandlerOptions{Theme: cslog.NewBrightTheme(), Level: slog.LevelDebug})
 
 	logger := slog.New(logHandler)
 	slog.SetDefault(logger)
 
 	slog.Debug("debug 2", "count", 3)
 	slog.Info("info 2", "count", 3)
+	slog.Error("oh oh 2", "error", errors.New("something bad happen"))
 }
 
 func demoLoggers() {

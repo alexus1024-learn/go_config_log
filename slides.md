@@ -364,6 +364,9 @@ func main() {
 ## Рассмотрим пример проекта
 ## "log/slog"
 
+<!-- slide -->
+
+https://github.com/go-slog/awesome-slog
 
 <!-- slide -->
 
