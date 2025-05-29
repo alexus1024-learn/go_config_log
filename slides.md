@@ -5,6 +5,13 @@ class: invert
 paginate: true
 ---
 
+# Конфигурация и логирование
+Лектор: Алексей Романовский
+
+
+---
+
+
 ## Маршрут вебинара
 * Знакомство
 * О конфигурациях
@@ -122,6 +129,8 @@ func main() {
 }
 ```
 
+---
+
 
 ```yaml
 domain: abs.com
@@ -129,7 +138,7 @@ blacklist:
  - evil.com
  - bad.com
 ```
-<br/>
+
 ---
 
 ### Переменные окружения
@@ -149,7 +158,8 @@ blacklist:
 MYAPP_HOST=localhost MYAPP_PORT=7777 go run main.go
 
 ```
-<br/>
+
+
 ---
 
 ## Переменные окружения в Go
@@ -173,7 +183,8 @@ type Config struct {
    config := Config{httpPort, shortenerHost}
 
 ```
-<br/>
+
+
 ---
 
 ## Библиотеки для работы с конфигурацией	
@@ -199,6 +210,8 @@ https://github.com/avelino/awesome-go#configuration
 
 Анмаршаллинг данных из переменных окружения в структуру + генератор документации.
 
+---
+
 ```go
 type Config struct {
    ApiUrl      string        `required:"true"`
@@ -218,9 +231,9 @@ func main() {
 
    config := Config{}
    envconfig.MustProcess(EnvVarPrefix, &config)
-}`
+}
 ```
-<br/>
+
 ---
 
 ### Универсальные библиотеки\фреймворки
@@ -265,7 +278,8 @@ https://github.com/alexus1024/go23_config_log/tree/main/config
        vault.NewBackend(vaultClient),
    )
 ```
-<br/>
+
+
 ---
 
 # Логирование	
@@ -307,7 +321,7 @@ func main() {
    log.Panicln("panic message")
 }
 ```
-<br/>
+
 ---
 
 ### Неструктурированное логирование (в файл)
@@ -327,7 +341,7 @@ func main() {
    log.Print("Logging to a file in Go!")
 }
 ```
-<br/>
+
 ---
 
 # Структурированные 
