@@ -7,7 +7,8 @@ import (
 	"log/slog"
 	"os"
 	"time"
-	//cslog "github.com/phsym/console-slog"
+
+	cslog "github.com/phsym/console-slog"
 )
 
 func main() {
@@ -48,7 +49,7 @@ func demoLoggers() {
 	defer file.Close()
 
 	writer := io.MultiWriter(file, os.Stderr)
-	logger := slog.New(slog.NewTextHandler(writer, nil))
+	logger := slog.New(cslog.NewHandler(writer, nil))
 
 	logger.Info("starting processing")
 
