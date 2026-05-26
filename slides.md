@@ -122,18 +122,21 @@ https://12factor.net/ru/config
 ---
 ```go 
 import (
-   "io/ioutil"
-   "gopkg.in/yaml.v2"
+	"os"
+	"gopkg.in/yaml.v2"
 )
+
 type Config struct {
-   Domain    string   `yaml:"domain"`
-   Blacklist []string `yaml:"blacklist"`
+	Domain    string   `yaml:"domain"`
+	Blacklist []string `yaml:"blacklist"`
 }
+
 func main() {
-   var c Config
-   yamlFile, err := ioutil.ReadFile("conf.yaml") 
-   err = yaml.Unmarshal(yamlFile, &c)
+	var c Config
+	yamlFile, err := os.ReadFile("conf.yaml")
+	err = yaml.Unmarshal(yamlFile, &c)
 }
+
 ```
 
 ---
@@ -224,7 +227,7 @@ type Config struct {
    ApiUrl      string        `required:"true"`
    WorkerCount int           `default:"1"`
    Interval    time.Duration `default:"1m"`
-   LogLevel    zapcore.Level `default:"info" split_words:"true"`
+   LogLevel    zapcore.Level `default:"info" split_words:"true"` // dependency leak
 }
 const EnvVarPrefix = "myapp"
 func main() {
@@ -377,6 +380,17 @@ func main() {
 Выбор библиотеки
 * [libhunt chart](https://go.libhunt.com/categories/504-logging)
 * [Slog in go 1.21](https://go.dev/blog/slog) - похоже, это станет стандартом
+* [Сраввнение производительности логов](https://betterstack-community.github.io/go-logging-benchmarks/)
+
+---
+
+### Структурированные логи
+
+Выбор библиотеки
+* Slog - часть го, минималистично, легко расширяемо
+* Zerolog - жертвуем всё ради производительности
+* Zap - современная популярная, развиваюапяся
+* Logrus - основная библитоека много лет назад. Новые фичи не добавляют. 
 
 ---
 
@@ -404,7 +418,7 @@ https://github.com/go-slog/awesome-slog
 * envconfig
 * viper, confita
 * Логи, какие бывают
-* Библиотеки для логов: slog, zap, logrus
+* Библиотеки для логов: slog, zap, logrus, zerolog
 * Опрос
 
 ---

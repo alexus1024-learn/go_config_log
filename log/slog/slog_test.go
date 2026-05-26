@@ -1,10 +1,9 @@
 package main
 
 import (
+	"log/slog"
 	"os"
 	"testing"
-
-	"golang.org/x/exp/slog"
 )
 
 func TestSlog(t *testing.T) {
